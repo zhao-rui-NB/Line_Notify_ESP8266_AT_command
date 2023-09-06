@@ -25,7 +25,6 @@ public:
 
 void Line_notify::sendAtCommand(String cmd , String waitWord , unsigned long timeout = 5000){
     unsigned long startTime;
-    //ESP8266.flush();
     while(ESP8266.available()){
         ESP8266.read();
     }
@@ -36,8 +35,6 @@ void Line_notify::sendAtCommand(String cmd , String waitWord , unsigned long tim
     int check_cnt1 = 0;
 
     ESP8266.print(cmd + "\r\n");
-    //ESP8266.flush();
-
 
     startTime = millis();
     while( (millis() - startTime) < timeout){
